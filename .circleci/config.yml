@@ -3,8 +3,9 @@
    build:
      docker:
        - image: amsharifian/dandelion
-       - user: "dandelion"
-       - working_directory: ~/repo
+         user: "dandelion"
+      
+      working_directory: ~/repo
 
      steps:
        - checkout
