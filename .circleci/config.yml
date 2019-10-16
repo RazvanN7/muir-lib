@@ -4,7 +4,6 @@ executors:
   dandelion-executor:
     docker:
       - image: amsharifian/dandelion:micro
-        user: "dandelion"
 
     working_directory: ~/repo
 
