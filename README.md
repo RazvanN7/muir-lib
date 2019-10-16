@@ -1,10 +1,8 @@
-# Dandelion-lib(uIR)
-
-[![pipeline status](https://csil-git1.cs.surrey.sfu.ca/Dandelion/dandelion-lib/badges/master/pipeline.svg)](https://csil-git1.cs.surrey.sfu.ca/Dandelion/dandelion-lib/commits/master)
+# µIR-Lib
 
 
-Dandelion-lib(uIR) is a library of hardware components for auto generating highly configurable parallel dataflow accelerator.
-Dandelion-lib provides the implementation of the following hardware units:
+µIR-lib(uIR) is a library of hardware components for auto generating highly configurable parallel dataflow accelerator.
+µIR-lib provides the implementation of the following hardware units:
 
 1. A set of highly configurable and parameterizable computation nodes.
 2. A set of control units to support arbitrary control path.
