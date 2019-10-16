@@ -1,12 +1,27 @@
- version: 2.1
- jobs:
-   build:
-     docker:
-       - image: amsharifian/dandelion
-         user: "dandelion"
-      
-      working_directory: ~/repo
+version: 2.1
 
-     steps:
-       - checkout
-       - run: echo "A first hello"
+executors:
+  dandelion-executor:
+    docker:
+      - image: amsharifian/dandelion
+        user: "dandelion"
+
+    working_directory: ~/repo
+
+    environment:
+      JVM_OPTS: -Xmx3200m
+      TERM: dumb
+      SBT_ARGS: ""
+
+
+
+
+jobs:
+  build-prep:
+    executor: dandelion-executor
+
+    steps:
+      - checkout
+      - run:
+        name: "Amirali"
+        command: echo "Hi"
