@@ -23,5 +23,5 @@ jobs:
     steps:
       - checkout
       - run:
-        name: "Amirali"
-        command: echo "Hi"
+          name: "Testing"
+          command: echo "Hi"
