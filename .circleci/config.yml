@@ -36,7 +36,7 @@ jobs:
 
     steps:
       - checkout:
-          path: uir
+          path: uir-lib
 
       - run:
           command: |
