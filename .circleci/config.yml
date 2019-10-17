@@ -13,14 +13,51 @@ executors:
       SBT_ARGS: ""
 
 
+commands:
+  test-uir:
+    description: "Run µIR tests"
+    steps:
+      - attach_workspace:
+          at: ~/
 
+      # Set environment
+      - run: echo 'export PATH="/opt/verilator/verilator_4_016/bin:/opt/yosys/bin:$PATH"' >> $BASH_ENV
+
+      # The -DminimalResources flag causes sbt to run tests sequentially,
+      #  so we could actually use "sbt +test" to run all the crossVersioned tests.
+      # We currently run them separately so we can run them in parallel.
+      - run:
+          command: |
+            (cd uir-lib && cat /dev/null | sbt $SBT_ARGS compile)
 
 jobs:
   build:
     executor: dandelion-executor
 
     steps:
-      - checkout
+      - checkout:
+          path: uir
+
       - run:
-          name: "Testing"
-          command: echo "Hi"
+          command: |
+            date > date.prep
+            printenv
+            ls -al
+            pwd
+
+#      - persist_to_workspace:
+#          root: /home/chisel
+#          paths:
+#            - repo
+#            - .ivy2
+#            - .m2
+#            - .sbt
+
+
+
+
+
+workflows:
+  build_and_test:
+    jobs:
+      - build
