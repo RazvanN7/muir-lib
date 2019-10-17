@@ -46,7 +46,28 @@ jobs:
             (cd uir-lib && cat /dev/null | sbt $SBT_ARGS compile)
 
       - persist_to_workspace:
-         root: /home/dandelion
+         root: /root/dandelion
+         paths:
+           - repo
+           - .ivy2
+           - .m2
+           - .sbt
+  test:
+    executor: dandelion-executor
+
+    steps:
+      - checkout:
+          path: uir-lib
+
+      - run:
+          command: |
+            date > date.prep
+            ls -al
+            pwd
+            (cd uir-lib && cat /dev/null | sbt $SBT_ARGS test)
+
+      - persist_to_workspace:
+         root: /root/dandelion
          paths:
            - repo
            - .ivy2
@@ -57,7 +78,9 @@ jobs:
 
 
 
+
 workflows:
   build_and_test:
     jobs:
       - build
+      - test
