@@ -5,7 +5,7 @@ executors:
     docker:
       - image: amsharifian/dandelion:micro
 
-    working_directory: ~/repo
+    working_directory: ~/dandelion
 
     environment:
       JVM_OPTS: -Xmx3200m
@@ -41,17 +41,17 @@ jobs:
       - run:
           command: |
             date > date.prep
-            printenv
             ls -al
             pwd
+            (cd uir && cat /dev/null | sbt $SBT_ARGS test)
 
-#      - persist_to_workspace:
-#          root: /home/chisel
-#          paths:
-#            - repo
-#            - .ivy2
-#            - .m2
-#            - .sbt
+     - persist_to_workspace:
+         root: /root/dandelion
+         paths:
+           - repo
+           - .ivy2
+           - .m2
+           - .sbt
 
 
 
