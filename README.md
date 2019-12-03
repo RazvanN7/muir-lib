@@ -1,7 +1,7 @@
 # µIR-Lib
 
 [![Gitter](https://badges.gitter.im/sfu-arch/community.svg)](https://gitter.im/sfu-arch/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-[![CircleCI](https://circleci.com/gh/sfu-arch/uir-lib.svg?style=svg)](https://circleci.com/gh/sfu-arch/muir-lib)
+[![CircleCI](https://circleci.com/gh/sfu-arch/muir-lib.svg?style=svg)](https://circleci.com/gh/sfu-arch/muir-lib)
 
 µIR-lib(uIR) is a library of hardware components for auto generating highly configurable parallel dataflow accelerator.
 µIR-lib provides the implementation of the following hardware units:
